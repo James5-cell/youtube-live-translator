@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        /* Basic simulation of YT caption styles */
+        body {
+            background: #333;
+            color: white;
+            font-family: sans-serif;
+            height: 100vh;
+        }
+
+        .ytp-caption-window-container {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+        }
+
+        .ytp-caption-segment {
+            background: rgba(0, 0, 0, 0.5);
+            font-size: 24px;
+            cursor: text;
+            padding: 5px;
+        }
+
+        /* Import the styles from the extension */
+        @import url('styles.css');
+    </style>
+</head>
+
+<body>
+    <h1>Dictionary Lookup Test Harness</h1>
+    <p>Hover over the subtitles below to test dictionary.</p>
+
+    <div class="ytp-caption-window-container">
+        <div class="ytp-caption-segment">The quick brown fox jumps over the lazy dog</div>
+    </div>
+
+    <script src="mock_env.js"></script>
+    <script src="content.js"></script>
+    <script>
+        console.log("Test harness loaded");
+        // Manually init
+        setTimeout(() => {
+            if (typeof YouTubeSubtitleTranslator !== 'undefined') {
+                window.translator = new YouTubeSubtitleTranslator();
+                // Force start skipping the hostname check
+                window.translator.start();
+                console.log("Translator instance started manually");
+            } else {
+                console.error("YouTubeSubtitleTranslator class not found");
+            }
+        }, 500);
+    </script>
+</body>
+
+</html>

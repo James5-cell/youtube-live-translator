@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>YouTube 字幕翻译设置</title>
+  <style>
+    body {
+      width: 300px;
+      padding: 15px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 14px;
+    }
+
+    h2 {
+      margin: 0 0 15px 0;
+      font-size: 18px;
+      color: #333;
+    }
+
+    h3 {
+      margin: 20px 0 10px 0;
+      font-size: 14px;
+      color: #666;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 5px;
+    }
+
+    .setting-section {
+      margin-bottom: 20px;
+    }
+
+    .setting-row {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #555;
+      font-weight: 500;
+    }
+
+    select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    .toggle-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 44px;
+      height: 22px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: .4s;
+      border-radius: 22px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 16px;
+      width: 16px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+
+    input:checked+.slider {
+      background-color: #2196F3;
+    }
+
+    input:checked+.slider:before {
+      transform: translateX(22px);
+    }
+
+    .status {
+      margin-top: 15px;
+      padding: 10px;
+      background-color: #f0f0f0;
+      border-radius: 4px;
+      font-size: 12px;
+      color: #666;
+      text-align: center;
+    }
+
+    .status.success {
+      background-color: #d4edda;
+      color: #155724;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>🌐 Subtitle Translator & Dictionary</h2>
+
+  <div class="setting-section">
+    <h3>📝 Subtitle Translation</h3>
+    <div class="setting-row toggle-container">
+      <label>Enable Translation</label>
+      <label class="switch">
+        <input type="checkbox" id="enableToggle" checked>
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="setting-row">
+      <label for="targetLang">Target Language</label>
+      <select id="targetLang">
+        <option value="zh-CN">Chinese (Simplified)</option>
+        <option value="zh-TW">Chinese (Traditional)</option>
+        <option value="en">English</option>
+        <option value="vi">Vietnamese</option>
+        <option value="ja">Japanese</option>
+        <option value="ko">Korean</option>
+        <option value="es">Spanish</option>
+        <option value="fr">French</option>
+        <option value="de">German</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="setting-section">
+    <h3>📖 Web Dictionary</h3>
+    <div class="setting-row toggle-container">
+      <label>Enable Dictionary</label>
+      <label class="switch">
+        <input type="checkbox" id="dictEnableToggle" checked>
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <!-- Trigger mode removed as requested, defaulting to Hover only -->
+
+    <div class="setting-row toggle-container">
+      <label>Show Phonetic</label>
+      <label class="switch">
+        <input type="checkbox" id="dictPhoneticToggle" checked>
+        <span class="slider"></span>
+      </label>
+    </div>
+  </div>
+
+  <div class="status" id="status">
+    Settings saved ✓
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+
+</html>
