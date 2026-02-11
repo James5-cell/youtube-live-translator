@@ -1,11 +1,10 @@
 {
   "manifest_version": 3,
-  "name": "YouTube Subtitle Translator",
+  "name": "Subtitle Translator for YouTube",
   "version": "1.1.0",
-  "description": "Real-time translation of YouTube subtitles",
+  "description": "Real-time dual subtitle translation and dictionary lookup for YouTube videos",
   "permissions": [
-    "storage",
-    "activeTab"
+    "storage"
   ],
   "host_permissions": [
     "https://www.youtube.com/*",
